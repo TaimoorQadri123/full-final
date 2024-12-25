@@ -1,0 +1,7 @@
+/* CREATE VIEW totalpro
+AS
+SELECT COUNT(id) as total_products from products */
+--  SELECT * FROM totalpro
+
+ALTER view detailpro AS
+SELECT products.id,products.name,products.price,products.QUANTITY,products.QUANTITY*products.price as total_amount , brands.name AS brand_name FROM products INNER JOIN brands on products.brand_id=brands.id

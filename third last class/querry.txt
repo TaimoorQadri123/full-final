@@ -1,0 +1,39 @@
+-- create sp for the count of all products according to brands name ?
+/*
+DELIMITER // 
+CREATE PROCEDURE sp_count_products_by_brand()
+BEGIN
+SELECT
+b.name,
+COUNT(p.id) AS product_count
+FROM
+products p 
+INNER JOIN 
+brand b ON p.brand_id = b.id
+GROUP BY
+b.name;
+END//
+*/
+CALL sp_count_products_by_brand()
+
+
+-- create sp for the total sales ammount according to brands name ?
+/*
+DELIMITER //
+
+CREATE PROCEDURE sp_count_products_by_brands(bName varchar(30))
+BEGIN
+    SELECT
+        b.name ,
+        SUM(p.price) AS total_price
+    FROM
+        products p
+    INNER JOIN 
+        brand b ON p.brand_id = b.id
+    WHERE 
+    b.name = bName;
+   END //
+*/
+CALL sp_count_products_by_brands("infinix")
+
+

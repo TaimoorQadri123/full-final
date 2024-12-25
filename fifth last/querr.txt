@@ -1,0 +1,18 @@
+
+DELIMITER //
+CREATE PROCEDURE sp_all()
+BEGIN
+SELECT * FROM products;
+END //
+
+-- call sp_all()
+
+
+DELIMITER //
+CREATE PROCEDURE sp_getprobybrand(in bName varchar(30))
+BEGIN
+SELECT p.id,p.name,p.quantity,p.price,p.status,p.warranty,b.name FROM product p INNER JOIN brands b ON p.brand_id =b.id
+WHERE b.name = bName;
+END //
+*/
+call sp_getprobybrand('infinix')

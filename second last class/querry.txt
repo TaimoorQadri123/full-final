@@ -1,0 +1,57 @@
+-- for insert
+/*
+DELIMITER //
+CREATE PROCEDURE dataAdd(
+     bn varchar(30)
+    )
+    BEGIN
+    INSERT INTO brands(name)
+    VALUES
+    (bn);
+    END//
+    */
+  --  CALL dataAdd('infinix00')
+    
+        
+
+-- for update
+     /*
+DELIMITER //                                                                                                                        CREATE PROCEDURE dataModf(
+     pid INT,
+     pn VARCHAR(30),
+     pq INT,
+     pp INT,
+     pw INT,
+     bid INT
+)
+BEGIN
+    UPDATE products 
+    SET name = pn, 
+        quantity = pq,
+        price = pp,
+        warranty = pw, 
+        brand_id = bid
+    WHERE id = pid;    
+END//
+*/
+  
+  CALL dataModf(4, 'infinix', 55, 1200, 3, 4);                                                                                                                                
+
+
+-- for delete 
+/* DELIMITER //
+CREATE PROCEDURE dataDelete(
+       IN pn varchar(30)
+)
+BEGIN
+    DELETE FROM products
+    WHERE pn = name;
+    END//
+   */
+   
+   CALL dataDelete('Vivo X90')
+
+
+
+
+                                                                                                                                                                                

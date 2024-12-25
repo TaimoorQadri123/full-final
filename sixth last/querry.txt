@@ -1,0 +1,20 @@
+-- question 1
+select brand.name as 'brand' FROM product INNER JOIN brand on products.brand_id = brands.id
+where brands.name BETWEEN 'i' AND 'x'
+
+-- question 2
+select count(product.id),brand.name as 'brand' FROM product INNER JOIN brand on product.brand_id = brand.id
+where brand.name in ('infinix','samsung ','techno') GROUP BY brand.name
+
+
+-- question 3 
+
+select sum(product.price) as 'total_price', brand.name as 'brand' FROM product INNER JOIN brand on product.brand_id = brand.id
+where brand.name = 'iphone' 
+
+
+-- question 4
+
+
+select sum(product.price * product.quantity) as 'total_price', brand.name as 'brand' FROM product INNER JOIN brand on product.brand_id = brand.id
+where brand.name NOT in ('vivo','infinix') 
